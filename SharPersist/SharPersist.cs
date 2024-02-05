@@ -10,6 +10,7 @@ namespace SharPersist
         private static string persistTechnique = "";
         private static string command = "";
         private static string commandArg = "";
+        private static string commandWorkingDir = "";
         private static string filePath = "";
         private static string theKey = "";
         private static string theVal = "";
@@ -48,9 +49,14 @@ namespace SharPersist
                 {
                     command = argDict["c"];
                 }
+
                 if (argDict.ContainsKey("a"))
                 {
                     commandArg = argDict["a"];
+                }
+                if (argDict.ContainsKey("w"))
+                {
+                    commandWorkingDir = argDict["w"];
                 }
                 if (argDict.ContainsKey("f"))
                 {
@@ -123,7 +129,7 @@ namespace SharPersist
                 // schtask persistence
                 else if (persistTechnique.ToLower().Equals("schtask"))
                 {
-                    SchTask schtask = new SchTask(persistTechnique, command, commandArg, theKey, theVal, theName, filePath, method, option);
+                    SchTask schtask = new SchTask(persistTechnique, command, commandArg, commandWorkingDir, theKey, theVal, theName, filePath, method, option);
 
                 }
 

@@ -58,6 +58,7 @@ namespace SharPersist.lib
             Console.Write("\t-t: persistence technique\n\n");
             Console.Write("\t-c: command to execute\n\n");
             Console.Write("\t-a: arguments to command to execute (if applicable)\n\n");
+            Console.Write("\t-w: working directory for the command to execute in (note: only implemented for -t schtask -m add). Useful for DLL Sideloading (AppDomain manager sideloading, ClickOnce deployments)\n\n");
             Console.Write("\t-f: the file to create/modify/backdoor\n\n");
             Console.Write("\t-k: registry key to create/modify\n\n");
             Console.Write("\t-v: registry value to create/modify\n\n");

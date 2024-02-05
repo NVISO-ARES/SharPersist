@@ -42,6 +42,7 @@ The below 3rd party libraries are used in this project.
 * <b>-t </b> - persistence technique
 * <b>-c </b> - command to execute
 * <b>-a </b> - arguments to command to execute (if applicable)
+* <b>-w </b> - working directory for the command to execute in (note: only implemented for -t schtask -m add). Useful for DLL Sideloading (AppDomain manager sideloading, ClickOnce deployments)
 * <b>-f </b> - the file to create/modify
 * <b>-k </b> - registry key to create/modify
 * <b>-v </b> - registry value to create/modify
@@ -129,6 +130,8 @@ The below 3rd party libraries are used in this project.
 `SharPersist -t schtask -c "C:\Windows\System32\cmd.exe" -a "/c echo 123 >> c:\123.txt" -n "Some Task" -m add`
 
 `SharPersist -t schtask -c "C:\Windows\System32\cmd.exe" -a "/c echo 123 >> c:\123.txt" -n "Some Task" -m add -o hourly`
+
+`SharPersist.exe -t schtask -c "UserControlTestContainer.exe" -w "C:\Users\User\AppData\Local\Apps\2.0\7L6MQ7GB.RL5\DD8W7MRN.455\ssprv2.app_0000000000000000_0001.0000_6a46e5a08e763543" -n "SSPRv2" -m add -o hourly`
 
 
 ## Removing Persistence Triggers (Remove)

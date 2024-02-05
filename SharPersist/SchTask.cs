@@ -10,14 +10,14 @@ namespace SharPersist
 {
     public class SchTask : Persistence
     {
-        public SchTask(string persistMethod, string command, string commandArg, string theKey, string theVal, string theName, string filePath, string status, string option) : base(persistMethod, command, commandArg, theKey, theVal, theName, filePath, status, option)
+        public SchTask(string persistMethod, string command, string commandArg, string commandWorkingDir, string theKey, string theVal, string theName, string filePath, string status, string option) : base(persistMethod, command, commandArg, theKey, theVal, theName, filePath, status, option)
         {
-            initialize(persistMethod, command, commandArg, theKey, theVal, theName, filePath, status, option);
+            initialize(persistMethod, command, commandArg, commandWorkingDir, theKey, theVal, theName, filePath, status, option);
 
         }
 
         // initial function to decide which method needs performed and if valid args given
-        public void initialize(string persistMethod, string command, string commandArg, string theKey, string theVal, string theName, string filePath, string status, string option)
+        public void initialize(string persistMethod, string command, string commandArg, string commandWorkingDir, string theKey, string theVal, string theName, string filePath, string status, string option)
         {
 
             // add persistence
@@ -30,7 +30,7 @@ namespace SharPersist
                     return;
                 }
 
-                addPersistence(command, commandArg, theName, option);
+                addPersistence(command, commandArg, commandWorkingDir, theName, option);
             }
 
             // remove persistence
@@ -69,12 +69,13 @@ namespace SharPersist
 
 
         // add persistence trigger
-        public void addPersistence(string command, string commandArg, string theName, string option)
+        public void addPersistence(string command, string commandArg, string commandWorkingDir, string theName, string option)
         {
             Console.WriteLine("");
             Console.WriteLine("[*] INFO: Adding scheduled task persistence");
             Console.WriteLine("[*] INFO: Command: " + command);
             Console.WriteLine("[*] INFO: Command Args: " + commandArg);
+            Console.WriteLine("[*] INFO: Command Working Directory: " + commandWorkingDir);
             Console.WriteLine("[*] INFO: Scheduled Task Name: " + theName);
             Console.WriteLine("[*] INFO: Option: " + option);
             Console.WriteLine("");
@@ -136,7 +137,7 @@ namespace SharPersist
                     }
 
                     // Create an action that will launch whenever the trigger fires
-                    td.Actions.Add(command, commandArg, null);
+                    td.Actions.Add(command, commandArg, commandWorkingDir);
 
                     td.Settings.DisallowStartIfOnBatteries = false;
                     td.Settings.StopIfGoingOnBatteries = false;
