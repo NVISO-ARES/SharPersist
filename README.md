@@ -258,3 +258,10 @@ The below 3rd party libraries are used in this project.
 `SharPersist -t schtask -m list -n "Some Task"`
 
 `SharPersist -t schtask -m list -o logon`
+
+> [!WARNING]
+> **Disclaimer:** This repository, including all code, scripts, and documentation contained herein, is provided by NVISO exclusively for educational and informational purposes. The contents of this repository are intended to be used solely as a learning resource. The authors of this repository expressly disclaim any responsibility for any misuse or unintended application of the tools, code, or information provided within this repository.
+
+> Users are solely responsible for ensuring that their use of the repository complies with applicable laws and regulations. The authors of this repository do not provide any warranties or guarantees regarding the accuracy, completeness, or suitability of the contents for any particular purpose.
+
+> If you do not agree with these terms, you are advised not to use or access this repository.
